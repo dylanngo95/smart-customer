@@ -1,0 +1,39 @@
+<?php
+
+/** @var \Smart\Customer\Block\Status\Index $block */
+/** @var \Magento\Framework\Escaper $escaper */
+?>
+
+<h2>Customer Status</h2>
+
+<form
+    id="customer-status"
+    action="<?= $escaper->escapeUrl($block->getSaveUrl()) ?>"
+    method="post"
+>
+    <div class="control">
+        <select id="status"
+                name="status">
+            <?php foreach ($block->getCustomerStatus() as $key => $value): ?>
+                <option value="<?= $key ?>"><?= $escaper->escapeHtml(__($value)) ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <br/>
+    <div class="primary">
+        <input class="action save primary" type="button" value="Submit" id="submit">
+    </div>
+</form>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "customerStatus": {
+                        "component": "Smart_Customer/js/view/validate"
+                    }
+                }
+            }
+        }
+    }
+</script>

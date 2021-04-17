@@ -1,0 +1,24 @@
+<?php
+
+/** @var \Smart\Customer\Block\Account\Status $block */
+/** @var \Magento\Framework\Escaper $escaper */
+?>
+<li>Status:</li>
+<li class="greet welcome" data-bind="scope: 'customerStatus'">
+    <!-- ko if: customerStatus().st  -->
+    <span class="logged-in" data-bind="text: customerStatus().st"></span>
+    <!-- /ko -->
+</li>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "customerStatus": {
+                        "component": "Smart_Customer/js/view/customer-status"
+                    }
+                }
+            }
+        }
+    }
+</script>
