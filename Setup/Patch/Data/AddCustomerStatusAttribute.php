@@ -90,7 +90,7 @@ class AddCustomerStatusAttribute implements DataPatchInterface
             CustomerStatusInterface::SMART_CUSTOMER_STATUS,
             [
                 'type' => 'varchar',
-                'label' => 'Status',
+                'label' => 'Customer Status',
                 'input' => 'text',
                 'validate_rules' => '{"max_text_length":255,"min_text_length":1}',
                 'required' => false,
@@ -100,6 +100,9 @@ class AddCustomerStatusAttribute implements DataPatchInterface
                 'user_defined' => true,
                 'unique' => false,
                 'system' => false,
+                'is_used_in_grid' => true,
+                'is_visible_in_grid' => true,
+                'is_filterable_in_grid' => true,
             ]
         );
         $attribute = $customerSetup->getEavConfig()->getAttribute(
